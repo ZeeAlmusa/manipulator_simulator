@@ -1,0 +1,13 @@
+function [lines] = draw_links(tmap, ax)
+%Provides handles to lines for a link chain
+
+%Input:
+%tmap - the transformation for each respective link the world frame
+%ax - axis to be drawn on
+    lines = cell(size(tmap));
+    for i=1:numel(tmap)
+        lines{i} = line('x', tmap{i}(1,:), 'y', link_set{i}(2,:), 'Parent', ax, 'Linestyle', '-', 'Marker', 'o');
+    end
+
+end
+
