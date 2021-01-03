@@ -1,6 +1,5 @@
 function [g,tmap] = forward_kinematics(q, L)
 
-
 vbase = [0; 0 ; 0];
 v1 = L{1};
 v2 = L{2};
