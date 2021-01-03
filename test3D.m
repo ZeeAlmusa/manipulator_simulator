@@ -1,6 +1,6 @@
 [ax, f] = create_axis(1);
 button = 1;
-q = [0, 0, 0];
+q = [1, 1, 1];
 L1 = [1, 0, 0];
 L2 = [2, 0, 0];
 L3 = [1, 0, 0];
@@ -12,7 +12,7 @@ L = {L1, L2, L3};
 %     q = arm_solve(desired_pos, q);
 % end
 
-desired_pos = [1, 1 , 1]';
+desired_pos = [1,  2 , 1]';
 q = arm_solve(desired_pos, q, L);
 
 function q = arm_solve(desired_pos, q, L)
@@ -24,20 +24,21 @@ draw_target(desired_pos);
 [g, tmap] = forward_kinematics(q, L);
 %draw_bound();
 
-J = true_jacobian(q, L);
+J = numerical_jacobian(q, L)
+%J = true_jacobian(q, L);
 link_lines = draw_links(tmap, ax);
 
 current_pos = tform2vec(g);
 
-alpha = 1;
+alpha = 0.1;
 
 
 error = (desired_pos-current_pos);
 
 while norm(error)>10^-2
     
-    
-    J = true_jacobian(q, L);
+    J = numerical_jacobian(q, L)
+    M = true_jacobian(q, L)
     
     [g, tmap] = forward_kinematics(q, L);
     

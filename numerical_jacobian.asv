@@ -1,0 +1,21 @@
+function [outputArg1,outputArg2] = numerical_jacobian(q, g)
+%NUMERICAL_JACOBIAN Summary of this function goes here
+%   Detailed explanation goes here
+fx = g(1,4);
+fy = g(2,4);
+fz = g(3,4);
+
+dq = 0.001
+%perturb q1
+h = q;
+h(1) = h(1) + dq;
+[g,tmap] = forward_kinematics(h, L)
+
+%perturb q2
+
+
+%perturb q3
+
+
+end
+
