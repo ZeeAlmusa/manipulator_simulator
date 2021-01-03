@@ -6,7 +6,7 @@ function [gz] = transform_z(angle, translation)
 %angle to rotate around the Z axis
 %translation as a 3x1 vector [ x; y; z]
 
-q = angle;% deg2rad(angle); 
+q = deg2rad(angle); 
 
 gz = [cos(q) -sin(q) 0 translation(1);
       sin(q) cos(q)  0 translation(2);

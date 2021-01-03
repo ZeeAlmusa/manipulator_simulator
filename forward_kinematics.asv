@@ -11,16 +11,16 @@ end
 
 
 
-transformations = cell(1, numel(V));
+transformations = cell(numel(V));
 
 for i=1:numel(V)
     if i < numel(V)
         
-        rot_axis = find(Q{i});
+        rot_axis = find(Q{i})
         
         if isempty(rot_axis);
            q = 0; 
-           
+           transformations{i} = transform_z(q, V{i});
         else
            q = nonzeros(Q{i});
            
@@ -33,10 +33,8 @@ for i=1:numel(V)
         elseif rot_axis == 2
             transformations{i} = transform_y(q, V{i});
             
-        else
-            
+        else 
             transformations{i} = transform_z(q, V{i});
-         
             
         end
         
@@ -48,11 +46,8 @@ for i=1:numel(V)
     
 end
 
+
 tmap = transform_map(transformations);
-tmap{1}
-tmap{2}
-tmap{3}
-tmap{4}
 g = tmap{end};
 
 end
