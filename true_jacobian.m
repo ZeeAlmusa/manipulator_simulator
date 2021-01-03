@@ -1,12 +1,7 @@
-function j = true_jacobian(Q, L)
+function j = true_jacobian(q, L)
 %JACOBIAN Summary of this function goes here
 %   Detailed explanation goes here
 
-if isempty(find(Q{1}))  q1 = 0, else q1 = Q{1}, end
-if isempty(find(Q{2}))  q2 = 0, else q2 = Q{2}, end
-if isempty(find(Q{3}))  q3 = 0, else q3 = Q{3}, end
-
-q = [q1, q2, q3];
 
 q  = deg2rad(q);
 
