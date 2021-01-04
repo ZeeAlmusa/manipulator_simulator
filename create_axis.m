@@ -35,8 +35,9 @@ function [ax,f] = create_axis(fignum)
     % it to apply to
     
     axis(ax, 'equal');
-    axis([-5 ,5, -5, 5, -5,5]);
-    
+    axis([-5 ,5, -5, 5, -5, 5]);
+    view(ax, 3)
+
     %set(gcf,'position',[0,0,1920,1080])
     %%%%%%
     % Use the 'box' command with the 'on' option to have all edges of the

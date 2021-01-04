@@ -1,6 +1,7 @@
+clear, clc;
 [ax, f] = create_axis(1);
 button = 1;
-q = [1, 1, 1];
+q = [0, 0, 0]';
 L1 = [1, 0, 0];
 L2 = [2, 0, 0];
 L3 = [1, 0, 0];
@@ -12,50 +13,22 @@ L = {L1, L2, L3};
 %     q = arm_solve(desired_pos, q);
 % end
 
-desired_pos = [1,  2 , 1]';
-q = arm_solve(desired_pos, q, L);
+desired_pos = [3.9 ,  0.1 , 0]';
+[q, sol] = arm_solve(desired_pos, q, L);
 
-function q = arm_solve(desired_pos, q, L)
+function [q, sol] = arm_solve(desired_pos, q, L)
+
+%initialization for the view
 ax = create_axis(1);
 path = [];
-
 draw_target(desired_pos);
 
-[g, tmap] = forward_kinematics(q, L);
-%draw_bound();
+[q, sol, link_lines] = get_IK(q, L, desired_pos, ax);
 
-J = numerical_jacobian(q, L)
-%J = true_jacobian(q, L);
-link_lines = draw_links(tmap, ax);
-
-current_pos = tform2vec(g);
-
-alpha = 0.1;
-
-
-error = (desired_pos-current_pos);
-
-while norm(error)>10^-2
-    
-    J = numerical_jacobian(q, L)
-    M = true_jacobian(q, L)
-    
-    [g, tmap] = forward_kinematics(q, L);
-    
-    current_pos = tform2vec(g);
-   
-    error = (desired_pos-current_pos);
-    path = draw_trajectory(path,current_pos, ax);
-    [q, grad] = IK_solver(q, L, desired_pos, J, alpha);
-    link_lines = update_drawing(link_lines,tmap, ax);
-    
-    
-    
+for i=1:size(sol,2)
+    nextpoint = sol(:,i);
+    [q, link_lines] = move(q, L, nextpoint, ax, link_lines);
 end
-
-output = display_solution(q);
-
-
 
 
 
