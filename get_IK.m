@@ -40,7 +40,7 @@ for i=1:size(traj, 2)
         error = (desired_pos-current_pos);
         %path = draw_trajectory(path,current_pos, ax);
         [q, grad] = IK_solver(q, L, desired_pos, J, alpha);
-        link_lines = update_drawing(link_lines,tmap, ax);
+        %link_lines = update_drawing(link_lines,tmap, ax);
 
 
 
