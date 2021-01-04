@@ -6,7 +6,7 @@ J = numerical_jacobian(q, L);
 current_pos = tform2vec(g);
 
 %calculate trajectory - (currently linear)
-n = 100;
+n = 10;
 t = linspace(0, 1, n);
 %this is a nx3 matrix where each row is a point on the line path
 traj =(1-t).*current_pos + t.*desired_pos;

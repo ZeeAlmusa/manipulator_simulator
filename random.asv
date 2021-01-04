@@ -1,0 +1,21 @@
+ax = create_axis(1);
+[X1, Y1, Z1] = cylinder(0.1);
+[X2, Y2, Z2] = cylinder(0.1);
+[X3, Y3, Z3] = cylinder(0.1);
+
+Z1 = Z1 * 1;
+Z2 = Z2 * 2;
+Z3 = Z3 * 2;
+
+
+H1 =  [reshape(X1, 1, []); reshape(X1, 1, []) ;reshape(Z1, 1, [])];
+
+
+
+T = transform_z(30, [0,0,0]);
+
+
+link1 = surf(X1,Y1,Z1, 'FaceColor', 'k');
+hold all 
+
+

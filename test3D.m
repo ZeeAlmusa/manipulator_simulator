@@ -6,12 +6,6 @@ L1 = [1, 0, 0];
 L2 = [2, 0, 0];
 L3 = [1, 0, 0];
 L = {L1, L2, L3};
-% while sum(button) <=3   % read ginputs until a mouse right-button occurs
-%     [x,y, button] = ginput(1);
-%     %theta = 90;
-%     desired_pos = [rand(1,3)*3]'%, theta]';
-%     q = arm_solve(desired_pos, q);
-% end
 
 desired_pos = [3.9 ,  0.1 , 0]';
 [q, sol] = arm_solve(desired_pos, q, L);
