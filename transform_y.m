@@ -8,7 +8,7 @@ function [gy] = transform_y(angle, translation)
 
 q = deg2rad(angle); 
 
-gu = [cos(q)  0      -sin(q) translation(1);
+gy = [cos(q)  0      -sin(q) translation(1);
       0       1      0       translation(2);
       sin(q)  0      cos(q)  translation(3);
       0       0      0      1];
