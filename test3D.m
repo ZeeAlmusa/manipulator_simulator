@@ -1,77 +1,61 @@
 clear, clc;
 [ax, f] = create_axis(1);
 button = 1;
-<<<<<<< HEAD
-q = [0, 0, 0];
-q = deg2rad(q);
-
-=======
 q = [0, 0, 0]';
->>>>>>> e9f6227f7dfc48c875143c10517e3f4e759aec77
 L1 = [1, 0, 0];
 L2 = [2, 0, 0];
-L3 = [2, 0, 0];
+L3 = [1, 0, 0];
 L = {L1, L2, L3};
 
-<<<<<<< HEAD
-desired_pos = [3.9, 0.2 , 0]';
-q = arm_solve(desired_pos, q, L);
-=======
-desired_pos = [3.9 ,  0.1 , 0]';
+desired_pos = [1 ,  3 , 0]';
 [q, sol] = arm_solve(desired_pos, q, L);
->>>>>>> e9f6227f7dfc48c875143c10517e3f4e759aec77
 
 function [q, sol] = arm_solve(desired_pos, q, L)
 
 %initialization for the view
 ax = create_axis(1);
 path = [];
-draw_target(desired_pos);
+%draw_target(desired_pos);
 
-<<<<<<< HEAD
+% th = 0:pi/50:2*pi;
+% y = 2*cos(th);
+% z = 2*sin(th);
+% x = ones(size(z))*3;
+% plot3(x,y,z, '--m')
+
+% t = -3:0.1:3;
+% y = 1/15*16*(sin(t)).^3;
+% z = 1/15*(15*cos(t) - 5*cos(2*t) - 2*cos(3*t) - cos(4*t));
+% x = ones(size(z))*3;
+% plot3(x,y,z, '--m')
+
+th = 0:pi/50:6*pi;
+t = linspace(1,3,length(th));
+y = 2*cos(th);
+z = 2*sin(th);
+x = t;
+plot3(x,y,z, '--r')
+
+% x = 1;
+% y = 1;
+% z = 1;
+
 [g, tmap] = forward_kinematics(q, L);
-
-
-%J = numerical_jacobian(q, L)
-J = true_jacobian(q, L);
 link_lines = draw_links(tmap, ax);
 
-current_pos = tform2vec(g);
+DESIRED = [x;y;z];
 
-alpha = 0.1;
-
-
-error = (desired_pos-current_pos);
-
-while norm(error)>10^-2
-    
-    %J = numerical_jacobian(q, L)
-    J = true_jacobian(q, L);
-    
-    [g, tmap] = forward_kinematics(q, L);
-    
-    current_pos = tform2vec(g);
-   
-    error = (desired_pos-current_pos);
-    path = draw_trajectory(path,current_pos, ax);
-    [q, grad] = IK_solver(q, L, desired_pos, J, alpha);
-    link_lines = update_drawing(link_lines,tmap, ax);
-    
-    
-    
-=======
-[q, sol, link_lines] = get_IK(q, L, desired_pos, ax);
-
-for i=1:size(sol,2)
-    nextpoint = sol(:,i);
-    [q, link_lines] = move(q, L, nextpoint, ax, link_lines);
->>>>>>> e9f6227f7dfc48c875143c10517e3f4e759aec77
+for n=1:size(DESIRED,2)
+    desired_pos = DESIRED(:,n);
+    [q, sol] = get_IK(q, L, desired_pos);
+    for i=1:size(sol,2)
+        nextpoint = sol(:,i);
+        [q, link_lines] = move(q, L, nextpoint, ax, link_lines);
+%         path_next = forward_kinematics(q,L);
+%         path = [path path_next(1:3,4)];
+%         plot3(path(1,:), path(2,:), path(3,:), 'b');
+    end
 end
 
 
-
 end
-
-
-
-
