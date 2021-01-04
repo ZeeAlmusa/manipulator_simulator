@@ -14,7 +14,7 @@ L = {L1, L2, L3};
 %     q = arm_solve(desired_pos, q);
 % end
 
-desired_pos = [1, 1 , 1]';
+desired_pos = [3.9, 0.2 , 0]';
 q = arm_solve(desired_pos, q, L);
 
 function q = arm_solve(desired_pos, q, L)
