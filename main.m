@@ -12,4 +12,6 @@ arm.q = [0, 0, 0]';
 arm.L = L;
 arm.graphics = {};
 
+trajectory = [1, 1, 1];
+
 move(arm, trajectory);
