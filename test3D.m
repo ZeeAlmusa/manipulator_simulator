@@ -7,7 +7,7 @@ L2 = [2, 0, 0];
 L3 = [1, 0, 0];
 L = {L1, L2, L3};
 
-desired_pos = [3.9 ,  0.1 , 0]';
+desired_pos = [2 ,  -1 , 2]';
 [q, sol] = arm_solve(desired_pos, q, L);
 
 function [q, sol] = arm_solve(desired_pos, q, L)
