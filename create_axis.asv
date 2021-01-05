@@ -37,9 +37,8 @@ function [ax,f] = create_axis(fignum)
     axis(ax, 'equal');
     axis([-3 ,3, -3, 3, -3, 3]);
     view(ax, 3)
-    %view(90,1)
-    %camorbit(0,90)
-   
+    view(90,0)
+    camorbit(340,90)
     xlabel('X') 
     ylabel('Y') 
     zlabel('Z')
