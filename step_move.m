@@ -1,4 +1,4 @@
-function [q, link_lines] = move(q, L, nextpoint, ax, link_lines)
+function [q, link_lines] = step_move(q, L, nextpoint, ax, link_lines)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 q = nextpoint;

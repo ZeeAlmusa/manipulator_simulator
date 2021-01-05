@@ -37,7 +37,7 @@ for n=1:size(DESIRED,2)
     [q, sol] = get_IK(q, L, desired_pos);
     for i=1:size(sol,2)
         nextpoint = sol(:,i);
-        [q, link_lines] = move(q, L, nextpoint, ax, link_lines);
+        [q, link_lines] = step_move(q, L, nextpoint, ax, link_lines);
 %         path_next = forward_kinematics(q,L);
 %         path = [path path_next(1:3,4)];
 %         delete(current_path);
