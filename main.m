@@ -13,6 +13,13 @@ arm.L = L;
 arm.ax = create_axis(1);
 arm.graphics = {};
 arm = forward_kinematics(arm);
-trajectory = [1, 1, 1];
+
+th = 0:pi/50:2*pi;
+y = 2*cos(th);
+z = 2*sin(th);
+x = ones(size(z))*3;
+plot3(x,y,z, '--m')
+
+trajectory = [x;y;z];
 
 move(arm, trajectory);

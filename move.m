@@ -22,11 +22,9 @@ addParameter(p,'solver',defaultInverseKineSolver,checkSolvers)
 addParameter(p,'view',defaultShow,checkShow)
 
 %% Get Initial Conditions
-ax = create_axis(1);
+
 arm = forward_kinematics(arm);
-
-
-arm.graphics = draw_links(arm.tmap, ax);
+arm.graphics = draw_links(arm.tmap, arm.ax);
 
 %% Calculate 
 
