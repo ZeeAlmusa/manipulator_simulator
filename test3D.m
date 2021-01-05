@@ -27,7 +27,7 @@ x = ones(size(z))*3;
 plot3(x,y,z, '--m')
 
 
-[g, tmap] = forward_kinematics(q, L);
+[g, tmap] = forward_kinematics(arm);
 link_lines = draw_links(tmap, ax);
 
 DESIRED = [x;y;z];

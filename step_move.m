@@ -1,14 +1,11 @@
-function [q, link_lines] = step_move(q, L, nextpoint, ax, link_lines)
+function arm = step_move(arm, nextpoint)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
-q = nextpoint;
-[g, tmap] = forward_kinematics(q, L);
-J = numerical_jacobian(q, L);
-current_pos = tform2vec(g);
 
+arm.q = nextpoint;
 
-[g, tmap] = forward_kinematics(nextpoint, L);
-link_lines = update_drawing(link_lines,tmap, ax);
+arm = forward_kinematics(arm);
+arm = update_drawing(arm);
 
 
 end

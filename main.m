@@ -1,5 +1,5 @@
 clear, clc;
-[ax, f] = create_axis(1);
+
 
 arm = struct;
 
@@ -10,8 +10,9 @@ L = {L1, L2, L3};
 
 arm.q = [0, 0, 0]';
 arm.L = L;
+arm.ax = create_axis(1);
 arm.graphics = {};
-
+arm = forward_kinematics(arm);
 trajectory = [1, 1, 1];
 
 move(arm, trajectory);

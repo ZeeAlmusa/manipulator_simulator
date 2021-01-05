@@ -1,13 +1,13 @@
-function [q, grad] = IK_solver(q, L, desired_pos, J, alpha)
+function arm = IK_solver(arm, desired_pos, alpha)
 %IK_SOLVER Summary of this function goes here
 %   Detailed explanation goes here
  
- [g, tmap] = forward_kinematics(q, L);
- current_pos = tform2vec(g);
+ arm = forward_kinematics(arm);
+ current_pos = tform2vec(arm.g);
  %current_pos = [current_pos;sum(q)];
 
- grad = pinv(J)*(desired_pos-current_pos);
- q = q + alpha*grad;
+ grad = pinv(arm.J)*(desired_pos-current_pos);
+ arm.q = arm.q + alpha*grad;
  
  
  
