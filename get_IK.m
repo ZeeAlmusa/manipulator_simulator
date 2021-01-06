@@ -3,10 +3,10 @@ function [arm, sol] = get_IK(arm, desired_pos)
 %calculate initial conditions
 arm = forward_kinematics(arm);
 arm = numerical_jacobian(arm);
-current_pos = tform2vec(arm.g);
+current_pos = [tform2vec(arm.g) ; arm.q(2) + arm.q(3) + arm.q(4)];
 
 %calculate trajectory - (currently linear)
-n = 10;
+n = 1;
 t = linspace(0, 1, n);
 %this is a nx3 matrix where each row is a point on the line path
 traj =(1-t).*current_pos + t.*desired_pos;
@@ -35,7 +35,7 @@ for i=1:size(traj, 2)
 
         arm  = forward_kinematics(arm);
 
-        current_pos = tform2vec(arm.g);
+        current_pos = [tform2vec(arm.g) ; arm.q(2) + arm.q(3) + arm.q(4)];
 
         error = (desired_pos-current_pos);
         %path = draw_trajectory(path,current_pos, ax);

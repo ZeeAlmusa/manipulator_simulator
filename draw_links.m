@@ -4,7 +4,7 @@ function [link_lines] = draw_links(tmap, ax)
 %Input:
 %tmap - the transformation for each respective link the world frame
 %ax - axis to be drawn on
-    colors = {[0,0,0] , 1/255*[71, 0, 163], 1/255*[128, 43, 240],  1/255*[240, 236, 43]};
+    colors = {[0,0,0] , 1/255*[71, 0, 163], 1/255*[128, 43, 240],  1/255*[240, 236, 43], 'r'};
        
     tmap = [{transform_z(0,[0;0;0])}, tmap];
     link_lines = cell(size(tmap));

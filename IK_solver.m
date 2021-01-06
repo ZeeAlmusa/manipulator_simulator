@@ -3,7 +3,7 @@ function arm = IK_solver(arm, desired_pos, alpha)
 %   Detailed explanation goes here
  
  arm = forward_kinematics(arm);
- current_pos = tform2vec(arm.g);
+ current_pos = [tform2vec(arm.g) ; arm.q(2) + arm.q(3) + arm.q(4)];
  %current_pos = [current_pos;sum(q)];
 
  grad = pinv(arm.J)*(desired_pos-current_pos);

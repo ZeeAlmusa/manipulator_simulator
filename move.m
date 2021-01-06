@@ -34,9 +34,10 @@ for n=1:size(trajectory,2)
     desired_pos = trajectory(:,n);
     [arm, sol] = get_IK(arm, desired_pos);
     path_solution = [path_solution sol];
-    
+   
     % Once a solution is found move the arm  with the interpolation 
      for i=1:size(sol,2)
+        
         nextpoint = sol(:,i);
         arm = step_move(arm, nextpoint);
         
