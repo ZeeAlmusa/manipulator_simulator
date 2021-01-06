@@ -40,28 +40,23 @@ function [ax,f] = create_axis(fignum)
     view(ax, 3)
     %camorbit(0,120)
     %view(0,10)
-    %view(0,90)  % XY
-  
-    %view(0,0)   % XZ
+    view(0,90)  % XY
+    pause
+    view(0,0)   % XZ
 
     view(90,0)  % YZ
-    camorbit(0,120)
     
+   
     xlabel('X') 
     ylabel('Y') 
     zlabel('Z')
-    set(gcf,'position',[0,0,1920,1080])
     %set(gcf,'position',[0,0,1920,1080])
     %%%%%%
     % Use the 'box' command with the 'on' option to have all edges of the
     % plotting axis marked Use the handle of the axis to make sure that
     % this action applies to the axis you want it to apply to
     box on
-    %grid on
     hold all
-    
-    [X,Y, Z] = cylinder2P(2.1, 40, [-10, 0, 0], [10,0,0]);
-    surf(X,Y,Z, 'FaceColor', [0 0.4470 0.7410], 'FaceAlpha', 0.1, 'EdgeColor', 'none');
     
 
 end
