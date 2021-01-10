@@ -35,7 +35,7 @@ function [ax,f] = create_axis(fignum)
     % it to apply to
     
     axis(ax, 'equal');
-    axis([-5 ,5, -5, 5, -5, 5]);
+    axis([-4 ,4, -4, 4, -4, 4]);
     
     view(ax, 3)
     %camorbit(0,120)

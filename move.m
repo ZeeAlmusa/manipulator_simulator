@@ -21,7 +21,7 @@ addParameter(p,'interpolation',defaultInterpolation, checkInterpolation)
 addParameter(p,'solver',defaultInverseKineSolver,checkSolvers)
 addParameter(p,'view',defaultShow,checkShow)
 
-path_solution = []
+path_solution = [];
 %% Get Initial Conditions
 
 arm = forward_kinematics(arm);

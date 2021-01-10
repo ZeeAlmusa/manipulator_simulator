@@ -22,24 +22,53 @@
 
 %% MESH
 
-y = [-2:0.5:2];
-z = [-2:0.5:2];
-[Y,Z] = meshgrid(y,z);
-X1 = ones(size(Y));
-X2 = ones(size(Y))*1.5;
+% y = [-2:0.5:2];
+% z = [-2:0.5:2];
+% [Y,Z] = meshgrid(y,z);
+% X1 = ones(size(Y));
+% X2 = ones(size(Y))*1.5;
+% 
+% Y = reshape(Y,1, numel(Y));
+% Z = reshape(Z,1, numel(Z));
+% X1 = reshape(X1, 1, numel(X1));
+% X2 = reshape(X2, 1, numel(X2));
+% 
+% Y = [Y(:), Y(:)].';
+% Y = [Y(:)];
+% 
+% Z = [Z(:), Z(:)].';
+% Z = [Z(:)];
+% 
+% X = [X1(:), X2(:)].';
+% X = [X(:)];
+% 
+% plot3(X, Y, Z)
 
-Y = reshape(Y,1, numel(Y));
-Z = reshape(Z,1, numel(Z));
-X1 = reshape(X1, 1, numel(X1));
-X2 = reshape(X2, 1, numel(X2));
+%% Modify Pose Angle at the same point
 
-Y = [Y(:), Y(:)].';
-Y = [Y(:)];
+pos = ones(3,20).*[4; 0 ; 4];
 
-Z = [Z(:), Z(:)].';
-Z = [Z(:)];
+angle = linspace(0,pi, length(pos));
 
-X = [X1(:), X2(:)].';
-X = [X(:)];
+trajectory = [pos ; angle];
+%% 
 
-plot3(X, Y, Z)
+th = 0:pi/50:6*pi;
+t = linspace(1.5, 3, length(th));
+y = t.*cos(th);
+z = t.*sin(th);
+x = ones(size(z))*1.5;
+plot3(x,y,z, '--m')
+
+angle = ones(1, length(th))*deg2rad(90);
+trajectory = [x; y; z;  angle];
+
+% pos = ones(3,20).*[2; 2 ; 2];
+% 
+% angle = linspace(0,pi, length(pos));
+% 
+% trajectory = [pos ; angle];
+
+% trajectory = trajectory(:,1);
+% 
+% trajectory = [1.5;  0 ; 1.5 ; deg2rad(90)];
