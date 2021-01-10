@@ -15,40 +15,22 @@ arm.L = L;
 arm.ax = create_axis(1);
 arm.graphics = {};
 arm = forward_kinematics(arm);
-arm.contrainPose = false;
+arm.contrainPose = true;
 
 %% trajectory
 % 
-% th = 0:pi/50:2*pi;
-% t = linspace(1,3,length(th));
-% y = 2*cos(th);
-% z = 2*sin(th);
-% x = 0.5*sin(12*th) + 2;
-% 
-% angle = ones(1, length(th))*deg2rad(90);
-% trajectory = [x; y; z ;  angle];
-% 
-% plot3(x,y,z, '--m');
-
 th = 0:pi/50:2*pi;
-t = linspace(-2,2,length(th));
-c = ones(1, length(th))*3;
-y = t;
-z = 1.5*sin(5*th);
-x = c;
+t = linspace(1,3,length(th));
+y = 2*cos(th);
+z = 2*sin(th);
+x = 0.5*sin(12*th) + 2;
 
-
-th = 0:pi/50:2*pi;
-t = linspace(-2,2,length(th));
-c = ones(1, length(th))*3;
-y = [y 1.5*sin(5*th)];
-z = [z t]; 
-x = [x c];
-
-angle = ones(1, length(x))*deg2rad(90);
-trajectory = [x; y; z]; %;  angle];
+angle = ones(1, length(th))*deg2rad(90);
+trajectory = [x; y; z ;  angle];
 
 plot3(x,y,z, '--m');
+
+
 
 
 %% solve

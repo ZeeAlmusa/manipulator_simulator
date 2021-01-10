@@ -72,3 +72,38 @@ trajectory = [x; y; z;  angle];
 % trajectory = trajectory(:,1);
 % 
 % trajectory = [1.5;  0 ; 1.5 ; deg2rad(90)];
+
+%% Sinusoidal Radial Scan
+% 
+% th = 0:pi/50:2*pi;
+% t = linspace(1,3,length(th));
+% y = 2*cos(th);
+% z = 2*sin(th);
+% x = 0.5*sin(12*th) + 2;
+% 
+% angle = ones(1, length(th))*deg2rad(90);
+% trajectory = [x; y; z ;  angle];
+% 
+% plot3(x,y,z, '--m');
+
+%% Sinusoidal Planar Scan
+
+% th = 0:pi/50:2*pi;
+% t = linspace(-2,2,length(th));
+% c = ones(1, length(th))*3;
+% y = t;
+% z = 1.5*sin(5*th);
+% x = c;
+% 
+% 
+% th = 0:pi/50:2*pi;
+% t = linspace(-2,2,length(th));
+% c = ones(1, length(th))*3;
+% y = [y 1.5*sin(5*th)];
+% z = [z t]; 
+% x = [x c];
+% 
+% angle = ones(1, length(x))*deg2rad(90);
+% trajectory = [x; y; z]; %;  angle];
+% 
+% plot3(x,y,z, '--m');
