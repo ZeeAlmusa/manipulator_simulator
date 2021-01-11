@@ -4,9 +4,10 @@ clear, clc;
 arm = struct;
 
 L1 = [1, 0, 0];
-L2 = [1.2, 0, 0];
-L3 = [1.2, 0, 0];
+L2 = [1, 0, 0];
+L3 = [1, 0, 0];
 L4 = [1, 0, 0];
+L5 = [0, 0, 0];
 L = {L1, L2, L3, L4};
 
 arm.q = [0, 0, 0, 0]';
@@ -23,13 +24,12 @@ th = 0:pi/50:2*pi;
 t = linspace(1,3,length(th));
 y = 2*cos(th);
 z = 2*sin(th);
-x = 0.5*sin(12*th) + 2;
+x = 1*sin(12*th) + 1;
 
 angle = ones(1, length(th))*deg2rad(90);
-trajectory = [x; y; z ;  angle];
+trajectory = [x; y; z;  angle];
 
 plot3(x,y,z, '--m');
-
 
 
 

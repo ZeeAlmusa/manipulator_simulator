@@ -7,6 +7,6 @@ function arm = update_drawing(arm)
         delete(arm.graphics{i});
     end
 
-    arm.graphics = draw_links(arm.tmap, arm.ax);
+    arm.graphics = draw_links(arm);
 end
 

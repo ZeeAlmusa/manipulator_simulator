@@ -25,7 +25,7 @@ path_solution = [];
 %% Get Initial Conditions
 
 arm = forward_kinematics(arm);
-arm.graphics = draw_links(arm.tmap, arm.ax);
+arm.graphics = draw_links(arm);
 
 %% Calculate 
 
