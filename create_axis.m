@@ -50,8 +50,8 @@ function [ax,f] = create_axis(fignum)
     xlabel('X') 
     ylabel('Y') 
     zlabel('Z')
-    %set(gcf,'position',[0,0,1920,1080])
-    %set(gcf,'position',[0,0,1920,1080])
+    set(gcf,'position',[0,0,1920,1080])
+    set(gcf,'position',[0,0,1920,1080])
     %%%%%%
     % Use the 'box' command with the 'on' option to have all edges of the
     % plotting axis marked Use the handle of the axis to make sure that

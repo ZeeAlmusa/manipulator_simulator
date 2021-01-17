@@ -12,7 +12,7 @@ n = 1;
 t = linspace(0, 1, n);
 %this is a nx3 matrix where each row is a point on the line path
 traj =(1-t).*arm.current_pos + t.*desired_pos;
-
+plot3(traj(1,:), traj(2,:), traj(3,:))
 %draw robot
 
 
@@ -38,13 +38,15 @@ for i=1:size(traj, 2)
         arm  = forward_kinematics(arm);
 
         arm = get_current_pose(arm); %current_pos = [tform2vec(arm.g) ; arm.q(2) + arm.q(3) + arm.q(4)]
-
+        
+        arm.current_pos
+        
         error = (desired_pos-arm.current_pos);
         %path = draw_trajectory(path,current_pos, ax);
         arm  = IK_solver(arm, desired_pos, alpha);
         %link_lines = update_drawing(link_lines,tmap, ax);
 
-
+        
 
     end
     

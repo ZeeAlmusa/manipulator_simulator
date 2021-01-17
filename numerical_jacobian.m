@@ -33,7 +33,7 @@ for i=1:num_links
     if dim >=4
         if arm.rot{i} == 'x'
             %arm.J(4,i) = 1;
-        elseif arm.rot{i} == 'y'
+        elseif arm.rot{i} == 'z'
             %arm.J(5,i) = 1;
         else
             arm.J(4,i) = 1;

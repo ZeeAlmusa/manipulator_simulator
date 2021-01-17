@@ -27,6 +27,15 @@ path_solution = [];
 arm = forward_kinematics(arm);
 arm.graphics = draw_links(arm);
 
+
+%% Initialize Video Recording
+
+myVideo = VideoWriter('Sim Example 3'); %open video file
+
+myVideo.FrameRate = 30;  %can adjust this, 5 - 10 works well for me
+myVideo.Quality = 100;  %can adjust this, 5 - 10 works well for me
+open(myVideo)
+
 %% Calculate 
 
 %For each point on the trajectory get the inverse kinematics
@@ -45,9 +54,12 @@ for n=1:size(trajectory,2)
 %         path = [path path_next(1:3,4)];
 %         delete(current_path);
 %         current_path = plot3(path(1,:), path(2,:), path(3,:), 'b');
+
+        frame = getframe(gcf); %get frame
+        writeVideo(myVideo, frame);
     end
 end
 
-
+close(myVideo)
 end
 
