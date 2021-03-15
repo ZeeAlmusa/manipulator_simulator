@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-03-15T11:13:59.994Z" agent="5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36" etag="DT7bMLDyY2Gt2R_xkanL" version="14.4.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-15T11:24:28.299Z" agent="5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36" etag="2lfZrmnH2MRie57adSOZ" version="14.4.8" type="github">
   <diagram name="Page-1" id="e56a1550-8fbb-45ad-956c-1786394a9013">
-    <mxGraphModel dx="1422" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="2031" dy="1053" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -33,6 +33,39 @@
         </mxCell>
         <mxCell id="cSiYuynqkyTP90B2qaCe-34" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cSiYuynqkyTP90B2qaCe-31">
           <mxGeometry y="78" width="242" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-35" value="arm (struct)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="276" y="188" width="420" height="234" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-36" value="L: {dtype: cellarray, desc: x, y ,z displacement of each joint} " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cSiYuynqkyTP90B2qaCe-35">
+          <mxGeometry y="26" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-37" value="q: {dtype: array, desc: initial rotations}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cSiYuynqkyTP90B2qaCe-35">
+          <mxGeometry y="52" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-38" value="rot: {dtype: cellarray, desc: rotation axes}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cSiYuynqkyTP90B2qaCe-35">
+          <mxGeometry y="78" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-39" value="ax = {dtype: Axes, desc: axes for visulization}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cSiYuynqkyTP90B2qaCe-35">
+          <mxGeometry y="104" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-40" value="graphics = {dtype: cellarray, desc: holds arm 3D render objects}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cSiYuynqkyTP90B2qaCe-35">
+          <mxGeometry y="130" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-41" value="tmap = {dtype: cellarray, desc: compounded transformation of each joint}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cSiYuynqkyTP90B2qaCe-35">
+          <mxGeometry y="156" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-42" value="g = {dtype: array , desc: transformation of the tooltip}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cSiYuynqkyTP90B2qaCe-35">
+          <mxGeometry y="182" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-43" value="constrainPose = {dtype: Boolean, desc: angular solve flag for tooltip}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cSiYuynqkyTP90B2qaCe-35">
+          <mxGeometry y="208" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cSiYuynqkyTP90B2qaCe-48" value="arm" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1" target="cSiYuynqkyTP90B2qaCe-26">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="696" y="200" as="sourcePoint" />
+            <mxPoint x="776" y="200" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
