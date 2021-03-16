@@ -27,7 +27,7 @@ for i=1:numel(transformations)
             transformations{i} = transform_z(arm.q(i), V{i});
         end
         
-    
+    app
     end
 end
 

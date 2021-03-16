@@ -30,7 +30,7 @@ arm.graphics = draw_links(arm);
 
 %% Initialize Video Recording
 
-myVideo = VideoWriter('Sim Example 3'); %open video file
+myVideo = VideoWriter('Sim Example 7'); %open video file
 
 myVideo.FrameRate = 30;  %can adjust this, 5 - 10 works well for me
 myVideo.Quality = 100;  %can adjust this, 5 - 10 works well for me
@@ -38,7 +38,7 @@ open(myVideo)
 
 %% Calculate 
 
-%For each point on the trajectory get the inverse kinematics
+%For each point onc the trajectory get the inverse kinematics
 for n=1:size(trajectory,2)
     desired_pos = trajectory(:,n);
     [arm, sol] = get_IK(arm, desired_pos);

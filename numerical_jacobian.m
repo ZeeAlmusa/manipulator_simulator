@@ -13,7 +13,7 @@ dq = 0.001;
 
 
 if arm.contrainPose
-    dim = 4;
+    dim = 5;
 else 
     dim = 3;
    
@@ -30,11 +30,13 @@ for i=1:num_links
     fz1 = arm1.g(3,4);
     f1 = [fx1 ; fy1 ; fz1];
     arm.J(1:3,i) = f1 - f;
+    
+    
     if dim >=4
         if arm.rot{i} == 'x'
             %arm.J(4,i) = 1;
-        elseif arm.rot{i} == 'z'
-            %arm.J(5,i) = 1;
+        elseif arm.rot{i} == 'y'
+            arm.J(5,i) = 1;
         else
             arm.J(4,i) = 1;
         end

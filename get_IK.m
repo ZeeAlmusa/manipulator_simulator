@@ -6,7 +6,7 @@ arm = numerical_jacobian(arm);
 
 %resultant angles in case of constrained pose
 arm = get_current_pose(arm);
-
+arm.current_pos
 %calculate trajectory - (currently linear)
 n = 1;
 t = linspace(0, 1, n);
@@ -14,7 +14,7 @@ t = linspace(0, 1, n);
 traj =(1-t).*arm.current_pos + t.*desired_pos;
 plot3(traj(1,:), traj(2,:), traj(3,:))
 %draw robot
-
+gra
 
 
 
